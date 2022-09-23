@@ -5,7 +5,8 @@ const app = createApp({
         return {
             product: "Socks",
             description: "Comfortable, soft and warm socks!",
-            image: '/src/assets/images/socks_green.jpg'
+            image: '/src/assets/images/socks_green.jpg',
+            inStock: true
         }
     }
 })
