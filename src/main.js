@@ -1,6 +1,11 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue/dist/vue.esm-bundler';
 
-import './assets/main.css'
+const app = createApp({
+    data() {
+        return {
+            product: 'Socks'
+        }
+    }
+})
 
-createApp(App).mount('#app')
+app.mount("#app");
