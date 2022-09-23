@@ -3,7 +3,8 @@ import { createApp } from 'vue/dist/vue.esm-bundler';
 const app = createApp({
     data() {
         return {
-            product: 'Socks'
+            product: "Socks",
+            description: "Comfortable, soft and warm socks!"
         }
     }
 })
