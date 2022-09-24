@@ -7,7 +7,7 @@ const app = createApp({
             product: "Socks",
             description: "Comfortable, soft and warm socks!",
             image: "/src/assets/images/socks_green.jpg",
-            inventory: 100,
+            inventory: 13,
             onSale: false,
             details: ["50% cotton", "30% wool", "20% polyester"],
             variants: [
@@ -18,7 +18,10 @@ const app = createApp({
     },
     methods: {
         addToCart() {
-            this.cart += 1;
+            if (this.inventory > 0) {
+                this.inventory -= 1;
+                this.cart += 1;
+            }
         },
         updateImage(variantImage) {
             this.image = variantImage;
