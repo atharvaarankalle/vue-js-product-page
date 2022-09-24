@@ -7,7 +7,7 @@ const app = createApp({
             product: "Socks",
             description: "Comfortable, soft and warm socks!",
             image: "/src/assets/images/socks_green.jpg",
-            inventory: 0,
+            inventory: 13,
             onSale: false,
             details: ["50% cotton", "30% wool", "20% polyester"],
             variants: [
