@@ -5,6 +5,7 @@ const app = createApp({
         return {
             cart: 0,
             product: "Socks",
+            brand: "Vue Mastery",
             description: "Comfortable, soft and warm socks!",
             image: "/src/assets/images/socks_green.jpg",
             inventory: 13,
@@ -25,6 +26,11 @@ const app = createApp({
         },
         updateImage(variantImage) {
             this.image = variantImage;
+        }
+    },
+    computed: {
+        title() {
+            return this.brand + " " + this.product
         }
     }
 })
