@@ -8,7 +8,6 @@ const app = createApp({
             brand: "Vue Mastery",
             description: "Comfortable, soft and warm socks!",
             selectedVariant: 0,
-            inventory: 13,
             onSale: false,
             details: ["50% cotton", "30% wool", "20% polyester"],
             variants: [
