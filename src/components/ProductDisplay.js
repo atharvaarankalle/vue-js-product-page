@@ -37,7 +37,9 @@ export default {
             <button class="button" v-on:click="addToCart(selectedVariant)" :class="{ disabledButton: variants[selectedVariant].quantity == 0 }" :disabled="variants[selectedVariant].quantity == 0">Add to Cart</button>
             <button class="button" v-on:click="removeFromCart(selectedVariant)" :class="{ disabledButton: variants[selectedVariant].quantity == 0 }" :disabled="variants[selectedVariant].quantity == 0">Remove</button>
         </div>
-        </div>
+    </div>
+    <review-list v-show="reviews.length > 0" :reviews="reviews"></review-list>
+    <review-form @review-submitted="addReview"></review-form>
   </div>`,
     data() {
         return {
@@ -50,7 +52,8 @@ export default {
             variants: [
                 { id: 2234, color: "green", image: "/src/assets/images/socks_green.jpg", quantity: 50 },
                 { id: 2235, color: "blue", image: "/src/assets/images/socks_blue.jpg", quantity: 10 },
-            ]
+            ],
+            reviews: []
         }
     },
     methods: {
@@ -68,6 +71,9 @@ export default {
         },
         updateVariant(index) {
             this.selectedVariant = index;
+        },
+        addReview(review) {
+            this.reviews.push(review);
         }
     },
     computed: {
