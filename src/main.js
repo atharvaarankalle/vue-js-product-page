@@ -10,7 +10,10 @@ const app = createApp({
     },
     methods: {
         updateCart(id) {
-            this.cart.push(id)
+            this.cart.push(id);
+        },
+        removeFromCart(id) {
+            this.cart.splice(this.cart.indexOf(id), 1);
         }
     },
 })
