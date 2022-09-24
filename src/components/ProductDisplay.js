@@ -54,7 +54,7 @@ export default {
         addToCart(selectedVariant) {
             if (this.variants[selectedVariant].quantity > 0) {
                 this.variants[selectedVariant].quantity -= 1;
-                this.cart += 1;
+                this.$emit("add-to-cart");
             }
         },
         updateVariant(index) {

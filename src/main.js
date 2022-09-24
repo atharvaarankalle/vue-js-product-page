@@ -9,6 +9,9 @@ const app = createApp({
         }
     },
     methods: {
+        updateCart() {
+            this.cart += 1;
+        }
     },
 })
 
