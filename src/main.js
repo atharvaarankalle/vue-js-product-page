@@ -4,11 +4,17 @@ import ProductDisplay from './components/ProductDisplay';
 const app = createApp({
     data() {
         return {
-            cart: 0,
+            cart: [],
             premium: false
         }
     },
     methods: {
+        updateCart(id) {
+            this.cart.push(id);
+        },
+        removeFromCart(id) {
+            this.cart.splice(this.cart.indexOf(id), 1);
+        }
     },
 })
 

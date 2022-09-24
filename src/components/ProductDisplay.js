@@ -1,5 +1,7 @@
 export default {
     props: {
+        cart: {
+        },
         premium: {
             type: Boolean,
             required: true
@@ -16,8 +18,8 @@ export default {
             <h1>{{ title }}</h1>
             <p v-show="onSale">On sale while stocks last!</p>
             <p>{{ description }}</p>
-            <p v-if="variants[selectedVariant].quantity > 10">In Stock</p>
-            <p v-else-if="variants[selectedVariant].quantity <= 10 && variants[selectedVariant].quantity > 0">Low Stock!</p>
+            <p v-if="variants[selectedVariant].quantity > 10">In Stock ({{ variants[selectedVariant].quantity }})</p>
+            <p v-else-if="variants[selectedVariant].quantity <= 10 && variants[selectedVariant].quantity > 0">Low Stock! ({{ variants[selectedVariant].quantity }})</p>
             <p v-else>Out of Stock</p>
 
             <p>Shipping: {{ shipping }}</p>
@@ -33,6 +35,7 @@ export default {
             {{ }}
             </div>
             <button class="button" v-on:click="addToCart(selectedVariant)" :class="{ disabledButton: variants[selectedVariant].quantity == 0 }" :disabled="variants[selectedVariant].quantity == 0">Add to Cart</button>
+            <button class="button" v-on:click="removeFromCart(selectedVariant)" :class="{ disabledButton: variants[selectedVariant].quantity == 0 }" :disabled="variants[selectedVariant].quantity == 0">Remove</button>
         </div>
         </div>
   </div>`,
@@ -54,7 +57,13 @@ export default {
         addToCart(selectedVariant) {
             if (this.variants[selectedVariant].quantity > 0) {
                 this.variants[selectedVariant].quantity -= 1;
-                this.cart += 1;
+                this.$emit("add-to-cart", this.variants[this.selectedVariant].id);
+            }
+        },
+        removeFromCart(selectedVariant) {
+            if (this.cart.length > 0) {
+                this.variants[selectedVariant].quantity += 1;
+                this.$emit("remove-from-cart", this.variants[selectedVariant].id);
             }
         },
         updateVariant(index) {
