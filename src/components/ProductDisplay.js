@@ -37,7 +37,8 @@ export default {
             <button class="button" v-on:click="addToCart(selectedVariant)" :class="{ disabledButton: variants[selectedVariant].quantity == 0 }" :disabled="variants[selectedVariant].quantity == 0">Add to Cart</button>
             <button class="button" v-on:click="removeFromCart(selectedVariant)" :class="{ disabledButton: variants[selectedVariant].quantity == 0 }" :disabled="variants[selectedVariant].quantity == 0">Remove</button>
         </div>
-        </div>
+    </div>
+    <review-form></review-form>
   </div>`,
     data() {
         return {

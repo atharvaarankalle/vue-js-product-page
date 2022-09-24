@@ -1,5 +1,6 @@
 import { createApp } from 'vue/dist/vue.esm-bundler';
 import ProductDisplay from './components/ProductDisplay';
+import ReviewForm from './components/ReviewForm';
 
 const app = createApp({
     data() {
@@ -19,4 +20,5 @@ const app = createApp({
 })
 
 app.component("product-display", ProductDisplay);
+app.component("review-form", ReviewForm);
 app.mount("#app");
