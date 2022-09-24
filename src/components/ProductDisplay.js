@@ -1,4 +1,10 @@
 export default {
+    props: {
+        premium: {
+            type: Boolean,
+            required: true
+        }
+    },
     template:
     /*html*/
     `<div class="product-display">
@@ -13,6 +19,8 @@ export default {
             <p v-if="variants[selectedVariant].quantity > 10">In Stock</p>
             <p v-else-if="variants[selectedVariant].quantity <= 10 && variants[selectedVariant].quantity > 0">Low Stock!</p>
             <p v-else>Out of Stock</p>
+
+            <p>Shipping: {{ shipping }}</p>
             <ul>
             <li v-for="detail in details">{{ detail }}</li>
             </ul>
@@ -60,5 +68,11 @@ export default {
         image() {
             return this.variants[this.selectedVariant].image;
         },
+        shipping() {
+            if (this.premium) {
+                return "Free";
+            }
+            return "$2.99";
+        }
     }
 }

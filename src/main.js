@@ -5,6 +5,7 @@ const app = createApp({
     data() {
         return {
             cart: 0,
+            premium: false
         }
     },
     methods: {
