@@ -15,6 +15,8 @@ export default {
                 {{ review.name }} gave this {{ review.rating }} stars
                 <br>
                 "{{ review.review }}"
+                <br>
+                {{ review.recommend === "Yes" ? "This user recommends this product" : "This user does not recommend this product" }}
             </li>
         </ul>
     </div>
